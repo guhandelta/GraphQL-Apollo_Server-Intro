@@ -12,6 +12,14 @@ const { ApolloServer, gql } = require('apollo-server'); // A template literal ta
 // Creating type definitions, with Template Literals
 // The gql tag parses the string as a GrapQL schema, so the typeDefs variable now contains a DocumentNode  
 const typeDefs = gql`
+    # This step happens by default, to bind *query* in the request to the *Query* in the endpoint. This step-
+    #- is not required to be mentioned, unless and until it is required
+    # This way it should be made clear that the query in the request matches the Query operations in the Schema-
+    #- which inturn, maps to the Query type
+    # schema{
+    #     query: Query
+    # }
+
     type Query{
         greeting: String
     }
